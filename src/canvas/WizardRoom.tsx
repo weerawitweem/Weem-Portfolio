@@ -2,6 +2,7 @@ import MagicBook from "./MagicBook";
 import Cauldron from "./Cauldron";
 import Stars from "./Stars";
 import Frog from "./Frog";
+import { OBJECT_POSITIONS } from "./Positions";
 
 export default function WizardRoom() {
   return (
@@ -12,10 +13,10 @@ export default function WizardRoom() {
         <meshStandardMaterial color="#2a2a2a" />
       </mesh>
 
-      <Cauldron position={[-5, 0.5, 0]} />
-      <MagicBook position={[0, 0.25, 0]} />
-      <Stars position={[5, 0.5, 0]} />
-      <Frog position={[-2, 0, 0]} />
+      <Cauldron position={OBJECT_POSITIONS.cauldron} />
+      <MagicBook position={OBJECT_POSITIONS.book} />
+      <Stars position={OBJECT_POSITIONS.stars} />
+      <Frog position={OBJECT_POSITIONS.frog} />
     </>
   );
 }
