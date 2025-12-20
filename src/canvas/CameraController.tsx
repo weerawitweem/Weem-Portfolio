@@ -8,6 +8,7 @@ export default function CameraController() {
   const { camera } = useThree();
   const focus = useSceneStore((s) => s.focus);
 
+  const currentLookAt = useRef(new Vector3());
   const targetPosition = useRef(new Vector3());
   const targetLookAt = useRef(new Vector3());
 
@@ -20,8 +21,10 @@ export default function CameraController() {
     targetPosition.current.set(...config.position);
     targetLookAt.current.set(...config.lookAt);
 
-    camera.position.lerp(targetPosition.current, 0.08);
-    camera.lookAt(targetLookAt.current);
+    camera.position.lerp(targetPosition.current, 0.04);
+    currentLookAt.current.lerp(targetLookAt.current, 0.04);
+    
+    camera.lookAt(currentLookAt.current);
   });
 
   return null;
